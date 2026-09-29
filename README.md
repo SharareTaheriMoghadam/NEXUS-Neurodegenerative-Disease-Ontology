@@ -1,157 +1,228 @@
 # NEXUS: Neurodegenerative Disease Knowledge Ontology
 
-## An Integrated Semantic Framework for Neurodegenerative Disease Knowledge
+## Overview
 
-NEXUS is an ontology-oriented semantic framework developed to represent and connect heterogeneous knowledge related to neurodegenerative diseases.
+NEXUS is an integrated ontology for representing and connecting knowledge related to neurodegenerative diseases across clinical, cognitive, biological, anatomical, temporal, artificial intelligence, explainability, clinical decision support, and patient-safety domains.
 
-The ontology brings together concepts from clinical medicine, cognitive function, disease characteristics, biological knowledge, brain anatomy, biomarkers, disease progression, artificial intelligence, explainability, clinical decision support, and patient safety within a common semantic structure.
+The ontology was developed to provide a structured semantic representation of neurodegenerative disease knowledge and to support interoperability between heterogeneous biomedical and computational concepts.
 
-The project was developed using ontology engineering principles and Protégé and is formally represented as a machine-readable ontology.
+NEXUS is associated with the research manuscript:
+
+> **An Integrated Semantic Framework and Ontology for Neurodegenerative Disease Knowledge: Linking Clinical, Cognitive, Biological, and Artificial Intelligence Domains**
+
+**Authors**
+
+- **Sharare Taheri Moghadam, PhD**
+- **Md Shafiqur Rahman Jabin, PhD**
+
+**Corresponding author:**  
+Md Shafiqur Rahman Jabin  
+Department of Medicine and Optometry  
+Linnaeus University, Kalmar, Sweden  
+Email: mdshafiqur.rahmanjabin@lnu.se
+
+The associated manuscript is currently pre-published / under peer review.
 
 ---
 
-## Ontology
+## NEXUS Ontology
 
-**Name:** NEXUS  
-**Version:** 1.0  
-**Domain:** Neurodegenerative disease knowledge representation  
-**Development environment:** Protégé / OWL  
-**Ontology repository:** BioPortal
+NEXUS integrates several major knowledge domains relevant to neurodegenerative disease research:
 
-### Official BioPortal record
+- Neurodegenerative diseases
+- Clinical findings and symptoms
+- Cognitive and behavioural concepts
+- Diagnosis and clinical assessment
+- Disease stages and progression
+- Biomarkers
+- Genes and proteins
+- Brain and anatomical structures
+- Imaging-related concepts
+- Risk factors
+- Treatment and medication concepts
+- Artificial intelligence and machine learning
+- Deep learning
+- Predictive and classification models
+- Explainability
+- Feature importance
+- Confidence and risk prediction
+- Clinical decision support systems
+- Human oversight
+- Patient safety
+- Temporal and disease-progression relationships
 
-The formal ontology is available through BioPortal:
+The ontology is designed as a semantic knowledge representation framework rather than as a validated clinical prediction system.
+
+---
+
+## BioPortal
+
+The NEXUS ontology is available through the BioPortal ontology repository:
 
 https://bioportal.bioontology.org/ontologies/NEXUS
 
-The complete ontology artifact is maintained through the formal ontology distribution rather than reproduced in this GitHub repository.
+The BioPortal version represents the authoritative ontology release.
 
-This repository provides selected public examples, competency questions, SPARQL queries, documentation, and demonstrations of the semantic structure.
+This GitHub repository provides selected public-facing ontology representations, competency questions, and executable SPARQL examples for research, demonstration, and reproducibility purposes.
+
+The GitHub repository intentionally does **not** reproduce the complete NEXUS ontology source.
 
 ---
 
-## Scope
+## Repository Purpose
 
-NEXUS was designed to provide an integrated semantic representation of heterogeneous neurodegenerative disease knowledge.
+This repository is intended to provide a transparent research-facing representation of the NEXUS project while keeping the complete ontology implementation centralized through its authoritative ontology distribution.
 
-The ontology connects concepts across several major domains:
+The repository includes:
+
+- A public ontology subset
+- Core ontology classes and relationships
+- Competency questions
+- Example SPARQL queries
+- Examples illustrating semantic relationships between clinical, biological, temporal, AI, explainability, and patient-safety concepts
+
+The examples are designed to demonstrate the conceptual structure of NEXUS without reproducing the complete ontology implementation.
+
+---
+
+## Core Conceptual Domains
+
+### Clinical Domain
+
+NEXUS represents clinical concepts including:
 
 - Neurodegenerative diseases
-- Clinical findings
 - Symptoms
-- Diagnosis
-- Clinical assessment
-- Cognitive functions
-- Brain anatomy
+- Clinical findings
+- Diagnoses
+- Clinical assessments
+- Treatments
+- Medications
+- Laboratory findings
+- Imaging findings
+- Risk factors
+
+### Biological Domain
+
+The ontology represents biological knowledge including:
+
 - Biomarkers
 - Genes
 - Proteins
-- Neuroimaging
+- Anatomical entities
+- Brain regions
+
+Examples of represented biomarker and genetic concepts include:
+
+- Tau protein
+- Phosphorylated tau
+- Alpha-synuclein
+- Neurofilament light
+- APOE
+- LRRK2
+- GBA
+- MAPT
+
+### Disease Progression
+
+NEXUS represents temporal and progression-related concepts including:
+
 - Disease stages
 - Disease progression
 - Clinical transitions
-- Treatment
-- Medication
+- Biomarker trajectories
+- Disease timelines
+- Precedes
+- Follows
+- Progresses-to relationships
+
+### Artificial Intelligence
+
+The ontology provides semantic representation for computational concepts including:
+
 - Artificial intelligence
 - Machine learning
 - Deep learning
 - Predictive models
 - Classification models
-- Knowledge graphs
+- Recommendation engines
 - Semantic reasoning
-- Explainability
-- Feature importance
+- Knowledge graphs
 - Risk prediction
-- Clinical decision support
+- Feature importance
+- Explainability reports
+- Confidence scores
+
+### Clinical Decision Support and Patient Safety
+
+NEXUS also connects computational concepts with clinical decision support and safety concepts, including:
+
+- Clinical decision support systems
+- Clinical recommendations
+- Risk predictions
+- Explainability
 - Human oversight
-- Patient safety
 - Safety constraints
 - Audit trails
-- Confidence and transparency
-
-The purpose is to provide a common semantic layer through which these heterogeneous concepts can be represented and related.
+- Patient safety
 
 ---
 
-## Conceptual Motivation
+## Disease Representation
 
-Neurodegenerative disease information is distributed across multiple clinical, cognitive, biological, imaging, genetic, computational, and research resources.
+The ontology includes a structured representation of neurodegenerative diseases, including:
 
-Existing ontology and knowledge-representation approaches often focus on individual diseases, datasets, experimental paradigms, or particular biomedical domains.
+- Alzheimer's disease
+- Parkinson's disease
+- Frontotemporal dementia
+- Lewy body dementia
+- Huntington's disease
 
-NEXUS was developed as a broader semantic structure for connecting complementary concepts across these domains.
+Disease progression can be represented using stages such as:
 
-The ontology is therefore intended primarily as a knowledge-representation and interoperability foundation.
+- Preclinical
+- Prodromal
+- Mild
+- Moderate
+- Severe
 
-It is not itself a predictive clinical model.
+The ontology also provides relationships for connecting diseases with clinical, biological, anatomical, diagnostic, and temporal concepts.
 
 ---
 
-## Major Semantic Domains
+## Examples of Semantic Relationships
 
-A simplified view of the NEXUS conceptual structure is:
+Examples of relationships represented within NEXUS include:
 
 ```text
-NEXUS
-│
-├── Clinical Domain
-│   ├── Disease
-│   ├── Symptom
-│   ├── Clinical Finding
-│   ├── Diagnosis
-│   ├── Clinical Assessment
-│   ├── Treatment
-│   └── Medication
-│
-├── Cognitive Domain
-│   ├── Cognitive Function
-│   ├── Memory
-│   ├── Attention
-│   ├── Executive Function
-│   └── Behavioural Function
-│
-├── Biological Domain
-│   ├── Biomarker
-│   ├── Protein
-│   ├── Gene
-│   └── Biological Process
-│
-├── Anatomical Domain
-│   ├── Nervous System
-│   ├── Brain Region
-│   └── Specific Anatomical Structures
-│
-├── Temporal Domain
-│   ├── Disease Stage
-│   ├── Disease Progression
-│   ├── Clinical Transition
-│   └── Biomarker Trajectory
-│
-├── Artificial Intelligence Domain
-│   ├── Artificial Intelligence
-│   ├── Machine Learning
-│   ├── Deep Learning
-│   ├── Predictive Model
-│   ├── Classification Model
-│   ├── Knowledge Graph
-│   └── Semantic Reasoner
-│
-├── Explainability Domain
-│   ├── Explainability
-│   ├── Feature Importance
-│   ├── Explainability Report
-│   └── Confidence Score
-│
-├── Clinical Decision Support
-│   ├── CDSS
-│   ├── Recommendation
-│   └── Risk Prediction
-│
-└── Patient Safety
-    ├── Patient Safety
-    ├── Clinical Risk
-    ├── Adverse Event
-    ├── Near Miss
-    ├── Safety Constraint
-    ├── Human Oversight
-    └── Audit Trail
+Clinical Assessment
+        |
+        | assesses
+        v
+Disease
+        |
+        | associatedWith
+        v
+Clinical Finding
+Disease
+   |
+   +---- associatedWith ----> Biomarker
+   |
+   +---- affects ------------> Anatomical Entity
+   |
+   +---- hasStage -----------> Disease Stage
+   |
+   +---- hasProgression -----> Disease Progression
+Clinical Decision Support System
+             |
+             +---- uses ----> AI / ML / DL
+             |
+             +---- produces -> Risk Prediction
+             |
+             +---- produces -> Clinical Recommendation
+             |
+             +---- provides --> Explainability Report
+             |
+             +---- supports --> Human Oversight
+             |
+             +---- addresses -> Patient Safety
