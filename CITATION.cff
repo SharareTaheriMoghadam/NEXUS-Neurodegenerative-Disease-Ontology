@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "If you use the NEXUS ontology or the examples in this repository, please cite the associated NEXUS research manuscript and acknowledge the ontology project."
+
+title: "NEXUS: Neurodegenerative Disease Knowledge Ontology"
+
+type: software
+
+authors:
+  - family-names: "Taheri Moghadam"
+    given-names: "Sharare"
+    affiliation: "Iran University of Medical Sciences"
+  - family-names: "Jabin"
+    given-names: "Md Shafiqur Rahman"
+    email: "mdshafiqur.rahmanjabin@lnu.se"
+    affiliation: "Linnaeus University"
+
+abstract: >
+  NEXUS is an integrated OWL 2 ontology for representing and connecting
+  neurodegenerative disease knowledge across clinical, cognitive, biological,
+  anatomical, diagnostic, therapeutic, temporal, artificial intelligence,
+  explainability, clinical decision-support, and patient-safety domains.
+  This repository provides selected public-facing ontology representations,
+  competency questions, and SPARQL examples associated with the NEXUS project.
+
+repository-code: "https://github.com/SharareTaheriMoghadam/NEXUS-Neurodegenerative-Disease-Ontology"
+
+url: "https://bioportal.bioontology.org/ontologies/NEXUS"
+
+keywords:
+  - neurodegenerative diseases
+  - biomedical ontology
+  - medical informatics
+  - knowledge representation
+  - clinical decision support
+  - artificial intelligence
+  - explainable AI
+  - patient safety
+  - semantic web
+  - OWL
+  - SPARQL
+  - knowledge graphs
+
+license: "NOASSERTION"
+
+version: "1.0.0"
+date-released: "2026-09-20"
