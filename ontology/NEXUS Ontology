@@ -1,0 +1,764 @@
+
+---
+
+# 4. Main ontology public subset
+
+Now create:
+
+**Path: `ontology/nexus_public_subset.ttl`**
+
+This is the most important technical file. It is based on the actual NEXUS namespace and architecture, but deliberately does **not** reproduce the complete 76 KB ontology.
+
+```turtle
+@prefix nexus: <https://w3id.org/nexus#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+#################################################################
+# NEXUS PUBLIC SUBSET
+# Neurodegenerative Disease Knowledge Ontology
+#
+# This file is a selected public-facing representation of NEXUS v1.0.
+# It intentionally does not reproduce the complete ontology source.
+#################################################################
+
+nexus:NEXUSPublicSubset a owl:Ontology ;
+
+    rdfs:label "NEXUS Public Ontology Subset"@en ;
+
+    dcterms:title
+        "NEXUS: Public Representation of the Neurodegenerative Disease Knowledge Ontology"@en ;
+
+    dcterms:creator
+        "Sharare Taheri Moghadam" ;
+
+    dcterms:contributor
+        "Md Shafiqur Rahman Jabin" ;
+
+    owl:versionInfo
+        "Public subset of NEXUS v1.0.0" ;
+
+    owl:versionIRI
+        <https://w3id.org/nexus/1.0> ;
+
+    dcterms:description
+        "A selected public-facing representation of the NEXUS ontology covering major clinical, biological, anatomical, temporal, artificial-intelligence, explainability, clinical decision-support, and patient-safety concepts."@en ;
+
+    dcterms:source
+        <https://bioportal.bioontology.org/ontologies/NEXUS> .
+
+
+#################################################################
+# TOP-LEVEL CLASSES
+#################################################################
+
+nexus:ClinicalEntity a owl:Class ;
+    rdfs:label "Clinical entity"@en .
+
+nexus:BiologicalEntity a owl:Class ;
+    rdfs:label "Biological entity"@en .
+
+nexus:InformationEntity a owl:Class ;
+    rdfs:label "Information entity"@en .
+
+nexus:AIEntity a owl:Class ;
+    rdfs:label "Artificial intelligence entity"@en .
+
+nexus:Process a owl:Class ;
+    rdfs:label "Process"@en .
+
+nexus:Role a owl:Class ;
+    rdfs:label "Role"@en .
+
+nexus:QualityConcept a owl:Class ;
+    rdfs:label "Quality concept"@en .
+
+
+#################################################################
+# CLINICAL DOMAIN
+#################################################################
+
+nexus:Disease a owl:Class ;
+    rdfs:subClassOf nexus:ClinicalEntity ;
+    rdfs:label "Disease"@en .
+
+nexus:NeurodegenerativeDisease a owl:Class ;
+    rdfs:subClassOf nexus:Disease ;
+    rdfs:label "Neurodegenerative disease"@en .
+
+nexus:Symptom a owl:Class ;
+    rdfs:subClassOf nexus:ClinicalEntity ;
+    rdfs:label "Symptom"@en .
+
+nexus:ClinicalFinding a owl:Class ;
+    rdfs:subClassOf nexus:ClinicalEntity ;
+    rdfs:label "Clinical finding"@en .
+
+nexus:Diagnosis a owl:Class ;
+    rdfs:subClassOf nexus:ClinicalEntity ;
+    rdfs:label "Diagnosis"@en .
+
+nexus:DifferentialDiagnosis a owl:Class ;
+    rdfs:subClassOf nexus:ClinicalEntity ;
+    rdfs:label "Differential diagnosis"@en .
+
+nexus:ClinicalAssessment a owl:Class ;
+    rdfs:subClassOf nexus:ClinicalEntity ;
+    rdfs:label "Clinical assessment"@en .
+
+nexus:Treatment a owl:Class ;
+    rdfs:subClassOf nexus:ClinicalEntity ;
+    rdfs:label "Treatment"@en .
+
+nexus:Medication a owl:Class ;
+    rdfs:subClassOf nexus:ClinicalEntity ;
+    rdfs:label "Medication"@en .
+
+nexus:Outcome a owl:Class ;
+    rdfs:subClassOf nexus:ClinicalEntity ;
+    rdfs:label "Outcome"@en .
+
+nexus:RiskFactor a owl:Class ;
+    rdfs:subClassOf nexus:ClinicalEntity ;
+    rdfs:label "Risk factor"@en .
+
+
+#################################################################
+# NEURODEGENERATIVE DISEASES
+#################################################################
+
+nexus:AlzheimerDisease a owl:Class ;
+    rdfs:subClassOf nexus:NeurodegenerativeDisease ;
+    rdfs:label "Alzheimer disease"@en .
+
+nexus:ParkinsonDisease a owl:Class ;
+    rdfs:subClassOf nexus:NeurodegenerativeDisease ;
+    rdfs:label "Parkinson disease"@en .
+
+nexus:FrontotemporalDementia a owl:Class ;
+    rdfs:subClassOf nexus:NeurodegenerativeDisease ;
+    rdfs:label "Frontotemporal dementia"@en .
+
+nexus:LewyBodyDementia a owl:Class ;
+    rdfs:subClassOf nexus:NeurodegenerativeDisease ;
+    rdfs:label "Lewy body dementia"@en .
+
+nexus:HuntingtonDisease a owl:Class ;
+    rdfs:subClassOf nexus:NeurodegenerativeDisease ;
+    rdfs:label "Huntington disease"@en .
+
+
+#################################################################
+# SYMPTOMS
+#################################################################
+
+nexus:MemoryLoss a owl:Class ;
+    rdfs:subClassOf nexus:Symptom ;
+    rdfs:label "Memory loss"@en .
+
+nexus:Bradykinesia a owl:Class ;
+    rdfs:subClassOf nexus:Symptom ;
+    rdfs:label "Bradykinesia"@en .
+
+nexus:RestingTremor a owl:Class ;
+    rdfs:subClassOf nexus:Symptom ;
+    rdfs:label "Resting tremor"@en .
+
+
+#################################################################
+# COGNITIVE DOMAIN
+#################################################################
+
+nexus:CognitiveFunction a owl:Class ;
+    rdfs:subClassOf nexus:ClinicalEntity ;
+    rdfs:label "Cognitive function"@en .
+
+nexus:MemoryFunction a owl:Class ;
+    rdfs:subClassOf nexus:CognitiveFunction ;
+    rdfs:label "Memory function"@en .
+
+nexus:AttentionFunction a owl:Class ;
+    rdfs:subClassOf nexus:CognitiveFunction ;
+    rdfs:label "Attention function"@en .
+
+nexus:ExecutiveFunction a owl:Class ;
+    rdfs:subClassOf nexus:CognitiveFunction ;
+    rdfs:label "Executive function"@en .
+
+nexus:LanguageFunction a owl:Class ;
+    rdfs:subClassOf nexus:CognitiveFunction ;
+    rdfs:label "Language function"@en .
+
+nexus:VisuospatialFunction a owl:Class ;
+    rdfs:subClassOf nexus:CognitiveFunction ;
+    rdfs:label "Visuospatial function"@en .
+
+nexus:BehavioralConcept a owl:Class ;
+    rdfs:subClassOf nexus:ClinicalEntity ;
+    rdfs:label "Behavioral concept"@en .
+
+
+#################################################################
+# BIOMARKERS
+#################################################################
+
+nexus:Biomarker a owl:Class ;
+    rdfs:subClassOf nexus:BiologicalEntity ;
+    rdfs:label "Biomarker"@en .
+
+nexus:ProteinBiomarker a owl:Class ;
+    rdfs:subClassOf nexus:Biomarker ;
+    rdfs:label "Protein biomarker"@en .
+
+nexus:GeneticBiomarker a owl:Class ;
+    rdfs:subClassOf nexus:Biomarker ;
+    rdfs:label "Genetic biomarker"@en .
+
+nexus:ImagingBiomarker a owl:Class ;
+    rdfs:subClassOf nexus:Biomarker ;
+    rdfs:label "Imaging biomarker"@en .
+
+nexus:Protein a owl:Class ;
+    rdfs:subClassOf nexus:BiologicalEntity ;
+    rdfs:label "Protein"@en .
+
+nexus:Gene a owl:Class ;
+    rdfs:subClassOf nexus:BiologicalEntity ;
+    rdfs:label "Gene"@en .
+
+nexus:TauProtein a owl:Class ;
+    rdfs:subClassOf nexus:Protein, nexus:ProteinBiomarker ;
+    rdfs:label "Tau protein"@en .
+
+nexus:PhosphorylatedTau a owl:Class ;
+    rdfs:subClassOf nexus:TauProtein ;
+    rdfs:label "Phosphorylated tau"@en .
+
+nexus:AlphaSynuclein a owl:Class ;
+    rdfs:subClassOf nexus:Protein, nexus:ProteinBiomarker ;
+    rdfs:label "Alpha-synuclein"@en .
+
+nexus:NeurofilamentLight a owl:Class ;
+    rdfs:subClassOf nexus:Protein, nexus:ProteinBiomarker ;
+    rdfs:label "Neurofilament light"@en .
+
+nexus:AmyloidBeta a owl:Class ;
+    rdfs:subClassOf nexus:Protein, nexus:ProteinBiomarker ;
+    rdfs:label "Amyloid beta"@en .
+
+nexus:APOE a owl:Class ;
+    rdfs:subClassOf nexus:Gene, nexus:GeneticBiomarker ;
+    rdfs:label "APOE"@en .
+
+nexus:LRRK2 a owl:Class ;
+    rdfs:subClassOf nexus:Gene, nexus:GeneticBiomarker ;
+    rdfs:label "LRRK2"@en .
+
+nexus:GBA a owl:Class ;
+    rdfs:subClassOf nexus:Gene, nexus:GeneticBiomarker ;
+    rdfs:label "GBA"@en .
+
+nexus:MAPT a owl:Class ;
+    rdfs:subClassOf nexus:Gene, nexus:GeneticBiomarker ;
+    rdfs:label "MAPT"@en .
+
+
+#################################################################
+# ANATOMICAL DOMAIN
+#################################################################
+
+nexus:AnatomicalEntity a owl:Class ;
+    rdfs:subClassOf nexus:BiologicalEntity ;
+    rdfs:label "Anatomical entity"@en .
+
+nexus:BrainRegion a owl:Class ;
+    rdfs:subClassOf nexus:AnatomicalEntity ;
+    rdfs:label "Brain region"@en .
+
+nexus:Hippocampus a owl:Class ;
+    rdfs:subClassOf nexus:BrainRegion ;
+    rdfs:label "Hippocampus"@en .
+
+nexus:Amygdala a owl:Class ;
+    rdfs:subClassOf nexus:BrainRegion ;
+    rdfs:label "Amygdala"@en .
+
+nexus:BasalGanglia a owl:Class ;
+    rdfs:subClassOf nexus:BrainRegion ;
+    rdfs:label "Basal ganglia"@en .
+
+nexus:SubstantiaNigra a owl:Class ;
+    rdfs:subClassOf nexus:BrainRegion ;
+    rdfs:label "Substantia nigra"@en .
+
+nexus:Cerebellum a owl:Class ;
+    rdfs:subClassOf nexus:BrainRegion ;
+    rdfs:label "Cerebellum"@en .
+
+nexus:Brainstem a owl:Class ;
+    rdfs:subClassOf nexus:BrainRegion ;
+    rdfs:label "Brainstem"@en .
+
+nexus:CorticalLobe a owl:Class ;
+    rdfs:subClassOf nexus:BrainRegion ;
+    rdfs:label "Cortical lobe"@en .
+
+nexus:FrontalLobe a owl:Class ;
+    rdfs:subClassOf nexus:CorticalLobe ;
+    rdfs:label "Frontal lobe"@en .
+
+nexus:ParietalLobe a owl:Class ;
+    rdfs:subClassOf nexus:CorticalLobe ;
+    rdfs:label "Parietal lobe"@en .
+
+nexus:TemporalLobe a owl:Class ;
+    rdfs:subClassOf nexus:CorticalLobe ;
+    rdfs:label "Temporal lobe"@en .
+
+nexus:OccipitalLobe a owl:Class ;
+    rdfs:subClassOf nexus:CorticalLobe ;
+    rdfs:label "Occipital lobe"@en .
+
+
+#################################################################
+# DISEASE STAGES AND PROGRESSION
+#################################################################
+
+nexus:DiseaseStage a owl:Class ;
+    rdfs:subClassOf nexus:ClinicalEntity ;
+    rdfs:label "Disease stage"@en .
+
+nexus:PreclinicalStage a owl:Class ;
+    rdfs:subClassOf nexus:DiseaseStage ;
+    rdfs:label "Preclinical stage"@en .
+
+nexus:ProdromalStage a owl:Class ;
+    rdfs:subClassOf nexus:DiseaseStage ;
+    rdfs:label "Prodromal stage"@en .
+
+nexus:MildStage a owl:Class ;
+    rdfs:subClassOf nexus:DiseaseStage ;
+    rdfs:label "Mild stage"@en .
+
+nexus:ModerateStage a owl:Class ;
+    rdfs:subClassOf nexus:DiseaseStage ;
+    rdfs:label "Moderate stage"@en .
+
+nexus:SevereStage a owl:Class ;
+    rdfs:subClassOf nexus:DiseaseStage ;
+    rdfs:label "Severe stage"@en .
+
+nexus:DiseaseProgression a owl:Class ;
+    rdfs:subClassOf nexus:Process ;
+    rdfs:label "Disease progression"@en .
+
+nexus:ClinicalTransition a owl:Class ;
+    rdfs:subClassOf nexus:Process ;
+    rdfs:label "Clinical transition"@en .
+
+nexus:BiomarkerTrajectory a owl:Class ;
+    rdfs:subClassOf nexus:Process ;
+    rdfs:label "Biomarker trajectory"@en .
+
+
+#################################################################
+# ARTIFICIAL INTELLIGENCE
+#################################################################
+
+nexus:AIModel a owl:Class ;
+    rdfs:subClassOf nexus:AIEntity ;
+    rdfs:label "AI model"@en .
+
+nexus:PredictiveModel a owl:Class ;
+    rdfs:subClassOf nexus:AIModel ;
+    rdfs:label "Predictive model"@en .
+
+nexus:ClassificationModel a owl:Class ;
+    rdfs:subClassOf nexus:AIModel ;
+    rdfs:label "Classification model"@en .
+
+nexus:RecommendationEngine a owl:Class ;
+    rdfs:subClassOf nexus:AIModel ;
+    rdfs:label "Recommendation engine"@en .
+
+nexus:SemanticReasoningModel a owl:Class ;
+    rdfs:subClassOf nexus:AIModel ;
+    rdfs:label "Semantic reasoning model"@en .
+
+nexus:KnowledgeGraph a owl:Class ;
+    rdfs:subClassOf nexus:InformationEntity ;
+    rdfs:label "Knowledge graph"@en .
+
+nexus:ModelOutput a owl:Class ;
+    rdfs:subClassOf nexus:InformationEntity ;
+    rdfs:label "Model output"@en .
+
+nexus:Prediction a owl:Class ;
+    rdfs:subClassOf nexus:ModelOutput ;
+    rdfs:label "Prediction"@en .
+
+nexus:RiskPrediction a owl:Class ;
+    rdfs:subClassOf nexus:Prediction ;
+    rdfs:label "Risk prediction"@en .
+
+nexus:FeatureImportance a owl:Class ;
+    rdfs:subClassOf nexus:InformationEntity ;
+    rdfs:label "Feature importance"@en .
+
+nexus:ConfidenceScore a owl:Class ;
+    rdfs:subClassOf nexus:InformationEntity ;
+    rdfs:label "Confidence score"@en .
+
+
+#################################################################
+# EXPLAINABILITY
+#################################################################
+
+nexus:ExplainabilityReport a owl:Class ;
+    rdfs:subClassOf nexus:InformationEntity ;
+    rdfs:label "Explainability report"@en .
+
+nexus:ModelInterpretation a owl:Class ;
+    rdfs:subClassOf nexus:InformationEntity ;
+    rdfs:label "Model interpretation"@en .
+
+
+#################################################################
+# CLINICAL DECISION SUPPORT
+#################################################################
+
+nexus:ClinicalDecisionSupportSystem a owl:Class ;
+    rdfs:subClassOf nexus:AIEntity ;
+    rdfs:label "Clinical decision support system"@en .
+
+nexus:ClinicalRecommendation a owl:Class ;
+    rdfs:subClassOf nexus:InformationEntity ;
+    rdfs:label "Clinical recommendation"@en .
+
+nexus:CDSSOutput a owl:Class ;
+    rdfs:subClassOf nexus:InformationEntity ;
+    rdfs:label "CDSS output"@en .
+
+nexus:HumanOversight a owl:Class ;
+    rdfs:subClassOf nexus:Process ;
+    rdfs:label "Human oversight"@en .
+
+nexus:SafetyConstraint a owl:Class ;
+    rdfs:subClassOf nexus:QualityConcept ;
+    rdfs:label "Safety constraint"@en .
+
+nexus:ClinicalRisk a owl:Class ;
+    rdfs:subClassOf nexus:QualityConcept ;
+    rdfs:label "Clinical risk"@en .
+
+nexus:PatientSafetyEvent a owl:Class ;
+    rdfs:subClassOf nexus:ClinicalEntity ;
+    rdfs:label "Patient safety event"@en .
+
+nexus:AuditTrail a owl:Class ;
+    rdfs:subClassOf nexus:InformationEntity ;
+    rdfs:label "Audit trail"@en .
+
+
+#################################################################
+# OBJECT PROPERTIES
+#################################################################
+
+nexus:hasSymptom a owl:ObjectProperty ;
+    rdfs:domain nexus:Disease ;
+    rdfs:range nexus:Symptom ;
+    rdfs:label "has symptom"@en .
+
+nexus:hasClinicalFinding a owl:ObjectProperty ;
+    rdfs:domain nexus:Disease ;
+    rdfs:range nexus:ClinicalFinding ;
+    rdfs:label "has clinical finding"@en .
+
+nexus:hasBiomarker a owl:ObjectProperty ;
+    rdfs:domain nexus:Disease ;
+    rdfs:range nexus:Biomarker ;
+    rdfs:label "has biomarker"@en .
+
+nexus:hasProteinBiomarker a owl:ObjectProperty ;
+    rdfs:subPropertyOf nexus:hasBiomarker ;
+    rdfs:domain nexus:Disease ;
+    rdfs:range nexus:ProteinBiomarker ;
+    rdfs:label "has protein biomarker"@en .
+
+nexus:hasGeneticBiomarker a owl:ObjectProperty ;
+    rdfs:subPropertyOf nexus:hasBiomarker ;
+    rdfs:domain nexus:Disease ;
+    rdfs:range nexus:GeneticBiomarker ;
+    rdfs:label "has genetic biomarker"@en .
+
+nexus:affectsBrainRegion a owl:ObjectProperty ;
+    rdfs:domain nexus:Disease ;
+    rdfs:range nexus:BrainRegion ;
+    rdfs:label "affects brain region"@en .
+
+nexus:hasStage a owl:ObjectProperty ;
+    rdfs:domain nexus:Disease ;
+    rdfs:range nexus:DiseaseStage ;
+    rdfs:label "has stage"@en .
+
+nexus:hasProgression a owl:ObjectProperty ;
+    rdfs:domain nexus:Disease ;
+    rdfs:range nexus:DiseaseProgression ;
+    rdfs:label "has progression"@en .
+
+nexus:hasStartingStage a owl:ObjectProperty ;
+    rdfs:domain nexus:DiseaseProgression ;
+    rdfs:range nexus:DiseaseStage ;
+    rdfs:label "has starting stage"@en .
+
+nexus:hasEndingStage a owl:ObjectProperty ;
+    rdfs:domain nexus:DiseaseProgression ;
+    rdfs:range nexus:DiseaseStage ;
+    rdfs:label "has ending stage"@en .
+
+nexus:precedes a owl:ObjectProperty ;
+    rdfs:domain nexus:DiseaseStage ;
+    rdfs:range nexus:DiseaseStage ;
+    rdfs:label "precedes"@en .
+
+nexus:follows a owl:ObjectProperty ;
+    rdfs:domain nexus:DiseaseStage ;
+    rdfs:range nexus:DiseaseStage ;
+    rdfs:label "follows"@en .
+
+nexus:progressesTo a owl:ObjectProperty ;
+    rdfs:domain nexus:DiseaseStage ;
+    rdfs:range nexus:DiseaseStage ;
+    rdfs:label "progresses to"@en .
+
+
+#################################################################
+# CLINICAL ASSESSMENT AND DIAGNOSIS
+#################################################################
+
+nexus:assessesDisease a owl:ObjectProperty ;
+    rdfs:domain nexus:ClinicalAssessment ;
+    rdfs:range nexus:Disease ;
+    rdfs:label "assesses disease"@en .
+
+nexus:resultsInDiagnosis a owl:ObjectProperty ;
+    rdfs:domain nexus:ClinicalAssessment ;
+    rdfs:range nexus:Diagnosis ;
+    rdfs:label "results in diagnosis"@en .
+
+nexus:diagnosesDisease a owl:ObjectProperty ;
+    rdfs:domain nexus:Diagnosis ;
+    rdfs:range nexus:Disease ;
+    rdfs:label "diagnoses disease"@en .
+
+nexus:hasDifferentialDiagnosis a owl:ObjectProperty ;
+    rdfs:domain nexus:Diagnosis ;
+    rdfs:range nexus:DifferentialDiagnosis ;
+    rdfs:label "has differential diagnosis"@en .
+
+
+#################################################################
+# COGNITIVE RELATIONSHIPS
+#################################################################
+
+nexus:assessesCognitiveFunction a owl:ObjectProperty ;
+    rdfs:domain nexus:ClinicalAssessment ;
+    rdfs:range nexus:CognitiveFunction ;
+    rdfs:label "assesses cognitive function"@en .
+
+
+#################################################################
+# AI RELATIONSHIPS
+#################################################################
+
+nexus:usesKnowledgeGraph a owl:ObjectProperty ;
+    rdfs:domain nexus:AIModel ;
+    rdfs:range nexus:KnowledgeGraph ;
+    rdfs:label "uses knowledge graph"@en .
+
+nexus:usesClinicalInformation a owl:ObjectProperty ;
+    rdfs:domain nexus:AIModel ;
+    rdfs:range nexus:ClinicalEntity ;
+    rdfs:label "uses clinical information"@en .
+
+nexus:generatesClinicalPrediction a owl:ObjectProperty ;
+    rdfs:domain nexus:AIModel ;
+    rdfs:range nexus:Prediction ;
+    rdfs:label "generates clinical prediction"@en .
+
+nexus:hasFeatureImportance a owl:ObjectProperty ;
+    rdfs:domain nexus:ModelOutput ;
+    rdfs:range nexus:FeatureImportance ;
+    rdfs:label "has feature importance"@en .
+
+nexus:hasConfidenceScore a owl:ObjectProperty ;
+    rdfs:domain nexus:ModelOutput ;
+    rdfs:range nexus:ConfidenceScore ;
+    rdfs:label "has confidence score"@en .
+
+
+#################################################################
+# EXPLAINABILITY RELATIONSHIPS
+#################################################################
+
+nexus:hasExplanation a owl:ObjectProperty ;
+    rdfs:domain nexus:ModelOutput ;
+    rdfs:range nexus:ExplainabilityReport ;
+    rdfs:label "has explanation"@en .
+
+nexus:explainsOutput a owl:ObjectProperty ;
+    owl:inverseOf nexus:hasExplanation ;
+    rdfs:domain nexus:ExplainabilityReport ;
+    rdfs:range nexus:ModelOutput ;
+    rdfs:label "explains output"@en .
+
+nexus:containsFeatureImportance a owl:ObjectProperty ;
+    rdfs:domain nexus:ExplainabilityReport ;
+    rdfs:range nexus:FeatureImportance ;
+    rdfs:label "contains feature importance"@en .
+
+nexus:containsConfidenceScore a owl:ObjectProperty ;
+    rdfs:domain nexus:ExplainabilityReport ;
+    rdfs:range nexus:ConfidenceScore ;
+    rdfs:label "contains confidence score"@en .
+
+
+#################################################################
+# CDSS RELATIONSHIPS
+#################################################################
+
+nexus:usesAIModel a owl:ObjectProperty ;
+    rdfs:domain nexus:ClinicalDecisionSupportSystem ;
+    rdfs:range nexus:AIModel ;
+    rdfs:label "uses AI model"@en .
+
+nexus:generatesCDSSOutput a owl:ObjectProperty ;
+    rdfs:domain nexus:ClinicalDecisionSupportSystem ;
+    rdfs:range nexus:CDSSOutput ;
+    rdfs:label "generates CDSS output"@en .
+
+nexus:providesClinicalRecommendation a owl:ObjectProperty ;
+    rdfs:domain nexus:ClinicalDecisionSupportSystem ;
+    rdfs:range nexus:ClinicalRecommendation ;
+    rdfs:label "provides clinical recommendation"@en .
+
+nexus:providesRiskPrediction a owl:ObjectProperty ;
+    rdfs:domain nexus:ClinicalDecisionSupportSystem ;
+    rdfs:range nexus:RiskPrediction ;
+    rdfs:label "provides risk prediction"@en .
+
+nexus:providesExplainabilityReport a owl:ObjectProperty ;
+    rdfs:domain nexus:ClinicalDecisionSupportSystem ;
+    rdfs:range nexus:ExplainabilityReport ;
+    rdfs:label "provides explainability report"@en .
+
+nexus:hasHumanOversight a owl:ObjectProperty ;
+    rdfs:domain nexus:ClinicalDecisionSupportSystem ;
+    rdfs:range nexus:HumanOversight ;
+    rdfs:label "has human oversight"@en .
+
+nexus:hasSafetyConstraint a owl:ObjectProperty ;
+    rdfs:domain nexus:ClinicalDecisionSupportSystem ;
+    rdfs:range nexus:SafetyConstraint ;
+    rdfs:label "has safety constraint"@en .
+
+nexus:constrainsRecommendation a owl:ObjectProperty ;
+    rdfs:domain nexus:SafetyConstraint ;
+    rdfs:range nexus:ClinicalRecommendation ;
+    rdfs:label "constrains recommendation"@en .
+
+nexus:hasClinicalRisk a owl:ObjectProperty ;
+    rdfs:domain nexus:ClinicalDecisionSupportSystem ;
+    rdfs:range nexus:ClinicalRisk ;
+    rdfs:label "has clinical risk"@en .
+
+nexus:addressesClinicalRisk a owl:ObjectProperty ;
+    rdfs:domain nexus:ClinicalRecommendation ;
+    rdfs:range nexus:ClinicalRisk ;
+    rdfs:label "addresses clinical risk"@en .
+
+nexus:hasAuditTrail a owl:ObjectProperty ;
+    rdfs:domain nexus:ClinicalDecisionSupportSystem ;
+    rdfs:range nexus:AuditTrail ;
+    rdfs:label "has audit trail"@en .
+
+nexus:recordsRecommendation a owl:ObjectProperty ;
+    rdfs:domain nexus:AuditTrail ;
+    rdfs:range nexus:ClinicalRecommendation ;
+    rdfs:label "records recommendation"@en .
+
+nexus:recordsModelOutput a owl:ObjectProperty ;
+    rdfs:domain nexus:AuditTrail ;
+    rdfs:range nexus:ModelOutput ;
+    rdfs:label "records model output"@en .
+
+
+#################################################################
+# REPRESENTATIVE OWL RESTRICTIONS
+#################################################################
+
+nexus:AlzheimerDisease
+    rdfs:subClassOf
+        [
+            a owl:Restriction ;
+            owl:onProperty nexus:hasSymptom ;
+            owl:someValuesFrom nexus:MemoryLoss
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty nexus:hasProteinBiomarker ;
+            owl:someValuesFrom nexus:AmyloidBeta
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty nexus:hasProteinBiomarker ;
+            owl:someValuesFrom nexus:PhosphorylatedTau
+        ] .
+
+nexus:ParkinsonDisease
+    rdfs:subClassOf
+        [
+            a owl:Restriction ;
+            owl:onProperty nexus:hasSymptom ;
+            owl:someValuesFrom nexus:Bradykinesia
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty nexus:hasSymptom ;
+            owl:someValuesFrom nexus:RestingTremor
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty nexus:affectsBrainRegion ;
+            owl:someValuesFrom nexus:SubstantiaNigra
+        ] .
+
+
+#################################################################
+# REPRESENTATIVE STAGE ORDERING
+#################################################################
+
+nexus:PreclinicalStage nexus:precedes nexus:ProdromalStage .
+nexus:ProdromalStage nexus:precedes nexus:MildStage .
+nexus:MildStage nexus:precedes nexus:ModerateStage .
+nexus:ModerateStage nexus:precedes nexus:SevereStage .
+
+
+#################################################################
+# REPRESENTATIVE DISJOINTNESS
+#################################################################
+
+nexus:Disease
+    owl:disjointWith
+        nexus:Symptom ,
+        nexus:Treatment ,
+        nexus:Biomarker ,
+        nexus:ClinicalAssessment .
+
+
+#################################################################
+# END OF PUBLIC SUBSET
+#################################################################
