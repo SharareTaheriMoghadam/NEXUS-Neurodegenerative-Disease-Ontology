@@ -1,0 +1,163 @@
+diseases_and_symptoms.rq
+
+---
+
+# 7. SPARQL query 1
+
+**Path: `sparql/diseases_and_symptoms.rq`**
+
+```sparql
+PREFIX nexus: <https://w3id.org/nexus#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT
+    ?disease
+    ?diseaseLabel
+    ?symptom
+    ?symptomLabel
+WHERE {
+
+    ?disease rdfs:subClassOf+ nexus:NeurodegenerativeDisease .
+
+    OPTIONAL {
+        ?disease rdfs:label ?diseaseLabel .
+    }
+
+    OPTIONAL {
+        ?disease rdfs:subClassOf [
+            a <http://www.w3.org/2002/07/owl#Restriction> ;
+            <http://www.w3.org/2002/07/owl#onProperty> nexus:hasSymptom ;
+            <http://www.w3.org/2002/07/owl#someValuesFrom> ?symptom
+        ] .
+    }
+
+    OPTIONAL {
+        ?symptom rdfs:label ?symptomLabel .
+    }
+}
+ORDER BY ?diseaseLabel ?symptomLabel
+biomarkers_and_anatomy.rq
+PREFIX nexus: <https://w3id.org/nexus#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT DISTINCT
+    ?disease
+    ?diseaseLabel
+    ?target
+    ?targetLabel
+    ?relationship
+WHERE {
+
+    VALUES ?disease {
+        nexus:AlzheimerDisease
+        nexus:ParkinsonDisease
+    }
+
+    {
+        ?disease rdfs:subClassOf [
+            a owl:Restriction ;
+            owl:onProperty nexus:hasProteinBiomarker ;
+            owl:someValuesFrom ?target
+        ] .
+
+        BIND(nexus:hasProteinBiomarker AS ?relationship)
+    }
+
+    UNION
+
+    {
+        ?disease rdfs:subClassOf [
+            a owl:Restriction ;
+            owl:onProperty nexus:affectsBrainRegion ;
+            owl:someValuesFrom ?target
+        ] .
+
+        BIND(nexus:affectsBrainRegion AS ?relationship)
+    }
+
+    OPTIONAL {
+        ?disease rdfs:label ?diseaseLabel .
+    }
+
+    OPTIONAL {
+        ?target rdfs:label ?targetLabel .
+    }
+}
+ORDER BY ?diseaseLabel ?relationship ?targetLabel
+disease_progression.rq
+PREFIX nexus: <https://w3id.org/nexus#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT
+    ?stage1
+    ?stage1Label
+    ?stage2
+    ?stage2Label
+WHERE {
+
+    ?stage1 nexus:precedes ?stage2 .
+
+    OPTIONAL {
+        ?stage1 rdfs:label ?stage1Label .
+    }
+
+    OPTIONAL {
+        ?stage2 rdfs:label ?stage2Label .
+    }
+}
+ORDER BY ?stage1Label ?stage2Label
+ai_explainability_safety.rq
+PREFIX nexus: <https://w3id.org/nexus#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT
+    ?subject
+    ?relationship
+    ?object
+    ?subjectLabel
+    ?objectLabel
+WHERE {
+
+    {
+        ?subject nexus:usesAIModel ?object .
+        BIND(nexus:usesAIModel AS ?relationship)
+    }
+
+    UNION
+
+    {
+        ?subject nexus:hasExplanation ?object .
+        BIND(nexus:hasExplanation AS ?relationship)
+    }
+
+    UNION
+
+    {
+        ?subject nexus:hasHumanOversight ?object .
+        BIND(nexus:hasHumanOversight AS ?relationship)
+    }
+
+    UNION
+
+    {
+        ?subject nexus:hasSafetyConstraint ?object .
+        BIND(nexus:hasSafetyConstraint AS ?relationship)
+    }
+
+    UNION
+
+    {
+        ?subject nexus:hasAuditTrail ?object .
+        BIND(nexus:hasAuditTrail AS ?relationship)
+    }
+
+    OPTIONAL {
+        ?subject rdfs:label ?subjectLabel .
+    }
+
+    OPTIONAL {
+        ?object rdfs:label ?objectLabel .
+    }
+}
+ORDER BY ?subjectLabel ?relationship ?objectLabel
